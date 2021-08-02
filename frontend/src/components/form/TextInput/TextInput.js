@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./TextInput.css";
 import classNames from "classnames";
+import styles from "./TextInput.module.css";
 
 const TextInput = ({
   className,
@@ -16,7 +16,7 @@ const TextInput = ({
       <textarea
         value={value}
         maxLength={maxLength}
-        className={classNames("text-input", className)}
+        className={classNames(styles["text-input"], className)}
         readOnly={readOnly}
         {...props}
       />
@@ -28,7 +28,7 @@ const TextInput = ({
       type={type}
       value={value}
       maxLength={maxLength}
-      className={classNames("text-input", className)}
+      className={classNames(styles["text-input"], className)}
       readOnly={readOnly}
       {...props}
     />
