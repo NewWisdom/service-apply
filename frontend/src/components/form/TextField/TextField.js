@@ -21,7 +21,7 @@ const TextField = ({
           <Label required={required}>{label}</Label>
         </div>
         {description && <Description>{description}</Description>}
-        {maxLength > 0 && (
+        {maxLength && maxLength > 0 && (
           <div className={styles["length-limit"]}>
             {value.length} / {maxLength}
           </div>
@@ -50,7 +50,7 @@ TextField.defaultProps = {
   value: "",
   required: false,
   description: "",
-  maxLength: 100,
+  maxLength: undefined,
 };
 
 export default TextField;

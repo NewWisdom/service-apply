@@ -48,7 +48,7 @@ TextInput.defaultProps = {
   type: "text",
   readOnly: false,
   value: "",
-  maxLength: 0,
+  maxLength: undefined,
 };
 
 export default TextInput;
