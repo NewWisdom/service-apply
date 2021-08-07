@@ -26,7 +26,7 @@ class ApplicationForm(
     submittedDateTime: LocalDateTime? = null,
 
     @Column(nullable = false)
-    val createdDateTime: LocalDateTime = LocalDateTime.now(),
+    var createdDateTime: LocalDateTime = LocalDateTime.now(),
     modifiedDateTime: LocalDateTime = LocalDateTime.now(),
     id: Long = 0L
 ) : BaseEntity(id) {
@@ -61,6 +61,22 @@ class ApplicationForm(
         applicationValidator: ApplicationValidator
     ) : this(applicantId, recruitmentId) {
         applicationValidator.validate(applicantId, recruitmentId)
+    }
+
+    constructor(
+        applicantId: Long,
+        recruitmentId: Long,
+        referenceUrl: String,
+        applicationFormAnswers: ApplicationFormAnswers,
+        submitted: Boolean,
+        createdDateTime: LocalDateTime,
+        modifiedDateTime: LocalDateTime,
+        submittedDateTime: LocalDateTime?
+    ) : this(applicantId, recruitmentId, referenceUrl, applicationFormAnswers) {
+        this.submitted = submitted
+        this.createdDateTime = createdDateTime
+        this.modifiedDateTime = modifiedDateTime
+        this.submittedDateTime = submittedDateTime
     }
 
     fun update(referenceUrl: String, applicationFormAnswers: ApplicationFormAnswers) {
